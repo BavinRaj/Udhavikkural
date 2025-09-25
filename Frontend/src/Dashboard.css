@@ -1,0 +1,268 @@
+/* Dashboard.css - Enhanced for a professional and attractive look */
+
+/* Global Box Sizing for consistent layout calculation */
+* {
+  box-sizing: border-box;
+}
+
+/* General Body Styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* Soft gradient background */
+  min-height: 100vh; /* Ensure body takes at least full viewport height */
+  margin: 0;
+  padding: 0; /* Remove default body padding */
+  overflow-x: hidden; /* Prevent horizontal scrollbars from appearing */
+}
+
+.dashboard-container {
+  background-color: #ffffff; /* White background for the main content area */
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Deeper shadow for the container */
+  padding: 40px;
+  max-width: 900px; /* Increased max-width for a more spacious dashboard */
+  width: calc(100% - 40px); /* Adjust width to account for body padding */
+  margin: 40px auto; /* Center horizontally and add space from the top */
+  text-align: center;
+  color: #333;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee; /* Subtle separator */
+}
+
+.dashboard-header h2 {
+  font-size: 2em;
+  color: #2c3e50;
+  margin: 0;
+  flex-grow: 1; /* Allow heading to take available space */
+  text-align: left;
+}
+
+/* Button Base Styles */
+.btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); /* Subtle shadow for buttons */
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn:disabled {
+  background-color: #e0e0e0 !important;
+  color: #a0a0a0 !important;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Specific Button Styles */
+.btn-back {
+  background-color: #f0f0f0;
+  color: #555;
+  border: 1px solid #ddd;
+  margin-bottom: 25px; /* Space below back button */
+}
+
+.btn-back:hover:not(:disabled) {
+  background-color: #e5e5e5;
+  color: #333;
+}
+
+.btn-voice-command {
+  background-color: #2ecc71; /* Green for voice command */
+  color: #fff;
+}
+
+.btn-voice-command:hover:not(:disabled) {
+  background-color: #27ae60;
+}
+
+.btn-logout {
+  background-color: #e74c3c; /* Red for logout */
+  color: #fff;
+  /* margin-left: 20px; Removed as it's part of the header flex now */
+}
+
+
+/* Dashboard Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Responsive columns */
+  gap: 25px; /* Increased space between grid items */
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.dashboard-card {
+  background: linear-gradient(145deg, #f0f2f5, #e0e4eb); /* Subtle gradient for card background */
+  border-radius: 12px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center icon and label horizontally */
+  justify-content: center; /* Center icon and label vertically */
+  text-align: center;
+  cursor: pointer;
+  min-height: 140px; /* Larger card size */
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08), 0 2px 5px rgba(0, 0, 0, 0.05); /* Multi-level shadow */
+  border: 1px solid #dcdfe6; /* Soft border */
+}
+
+.dashboard-card:hover {
+  background: linear-gradient(145deg, #e0e4eb, #f0f2f5); /* Invert gradient on hover for subtle effect */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), 0 4px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px) scale(1.02); /* More pronounced lift and slight scale */
+}
+
+.card-icon {
+  font-size: 3.5em; /* Even larger icons */
+  margin-bottom: 12px;
+  color: #007bff; /* Primary blue for icons */
+  transition: transform 0.2s ease;
+}
+
+.dashboard-card:hover .card-icon {
+  transform: scale(1.1); /* Scale icon on hover */
+}
+
+.card-label {
+  font-size: 1.1em; /* Slightly larger text */
+  font-weight: 600; /* Medium-bold */
+  color: #34495e; /* Darker text for readability */
+  line-height: 1.3; /* Better spacing for multi-line labels */
+  word-break: break-word; /* Ensures long words wrap */
+  overflow-wrap: break-word; /* Ensures long words wrap (alternative) */
+}
+
+/* Adjustments for longer labels to fit better */
+.dashboard-card:nth-child(3) .card-label, /* சுகாதார கண்காணிப்பு */
+.dashboard-card:nth-child(4) .card-label { /* மருந்துகள் மற்றும் நினைவூட்டல்கள் */
+  font-size: 1em; /* Slightly smaller for longer names */
+}
+
+/* Message Area Styling (copied from Login/Register for consistency) */
+.message-area {
+  margin-top: 25px;
+  padding: 12px;
+  border-radius: 6px;
+  background-color: #f8f8f8;
+  border: 1px solid #eee;
+  color: #666;
+  text-align: center;
+  font-size: 0.95em;
+  min-height: 40px; /* To prevent layout shift */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  word-break: break-word; /* Ensure long messages wrap */
+}
+
+.message-area.error {
+  background-color: #fbecec;
+  border-color: #e6a0a0;
+  color: #c0392b;
+}
+
+.message-area.success {
+  background-color: #e8f9ed;
+  border-color: #a4e0b3;
+  color: #27ae60;
+}
+
+.message-area.info {
+  background-color: #eaf6fd;
+  border-color: #acdceb;
+  color: #2196f3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 25px;
+    margin-top: 20px;
+    width: calc(100% - 30px); /* Slightly less padding on smaller screens */
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* 2 columns on smaller screens */
+    gap: 15px;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start; /* Keep alignment to start */
+  }
+
+  .dashboard-header h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    text-align: center; /* Center header on smaller screens */
+    width: 100%;
+  }
+
+  .btn-logout {
+    margin-left: 0;
+    width: 100%; /* Full width logout button */
+  }
+
+  .dashboard-card {
+    min-height: 120px;
+    padding: 20px;
+  }
+
+  .card-icon {
+    font-size: 3em;
+  }
+
+  .card-label {
+    font-size: 0.95em;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-container {
+    padding: 15px;
+    width: calc(100% - 20px);
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr; /* Single column on very small screens */
+  }
+
+  .dashboard-card {
+    min-height: 100px;
+    padding: 15px;
+  }
+
+  .card-icon {
+    font-size: 2.5em;
+  }
+
+  .btn {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .dashboard-header h2 {
+    font-size: 1.3em;
+  }
+}
